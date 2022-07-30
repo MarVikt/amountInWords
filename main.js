@@ -1,14 +1,10 @@
-/**
- * Склоняем словоформу
- */
+/** Склоняем словоформу */
  function morph(number, titles) {
 	let cases = [2, 0, 1, 1, 1, 2];
 	return titles[ (number%100>4 && number%100<20)? 2 : cases[Math.min(number%10, 5)] ];
 }
 
-/**
- * Преобразует строку в массив
- */
+/** Преобразует строку в массив */
 function str_split(string, length) {
   string = string == null ? "" : string;
   length = length == null ? 1 : length;
@@ -22,6 +18,7 @@ function str_split(string, length) {
   return chunks;
 }
 
+/** сумма в рублях прописью */
 function amountInWords(num) {
   let def_translite = {
     null: "ноль",
