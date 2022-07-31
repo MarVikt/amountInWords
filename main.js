@@ -1,3 +1,8 @@
+/** привести число n к формату N NNN,NN */
+function moneyFormat(n) {
+  return parseFloat(n).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1 ").replace('.', ',');
+}
+
 /** Склоняем словоформу */
  function morph(number, titles) {
 	let cases = [2, 0, 1, 1, 1, 2];
@@ -102,7 +107,6 @@ function amountInWords(num) {
     _ref1 = str_split(rub, 3);
     for (let i = -1; i < _ref1.length; i++) {
       v = _ref1[i];
-      console.log("v= "+v);
       if (!v || v==="000") continue;
       _ref2 = str_split(v, 1);
       i1 = parseInt(_ref2[0]);
@@ -121,7 +125,6 @@ function amountInWords(num) {
 
       if (_ref1.length > i + 1) {
         let name = def_translite["u" + (i + 1)];
-        console.log("u" + (i + 1));
         out.push(morph(v, name));
       }
     }
@@ -137,5 +140,6 @@ function amountInWords(num) {
   return out.join(" ").replace(RegExp(" {2,}", "g"), " ").trimStart();
 }
 
-console.log(140000);
-console.log(amountInWords(140000));
+console.log(564812.20);
+console.log(moneyFormat(564812.20));
+console.log(amountInWords(564812.20));
