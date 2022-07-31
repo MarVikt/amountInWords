@@ -136,10 +136,13 @@ function amountInWords(num) {
   // Дописываем название "копейка"
   out.push(kop + " " + morph(kop, def_translite.uc));
 
-  // Объединяем маcсив в строку, удаляем лишние пробелы и возвращаем результат
-  return out.join(" ").replace(RegExp(" {2,}", "g"), " ").trimStart();
+  // Объединяем маcсив в строку, удаляем лишние пробелы
+  let outStr = out.join(" ").replace(RegExp(" {2,}", "g"), " ").trimStart();
+  // делаем первую букву строки большой и возвращаем результат
+  outStr = outStr[0].toUpperCase() + outStr.substring(1);
+  return outStr;
 }
 
-console.log(564812.20);
-console.log(moneyFormat(564812.20));
-console.log(amountInWords(564812.20));
+console.log(164812.20);
+console.log(moneyFormat(164812.20));
+console.log(amountInWords(164812.20));
